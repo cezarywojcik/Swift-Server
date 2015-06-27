@@ -74,7 +74,7 @@ while true {
         next = recv(Int32(cs), &buffer, Int(buffer.count), 0)
         request.append(Character(UnicodeScalar(buffer[0])))
         // we'll take two newlines to mean end of message
-        if last == 10 && buffer[0] == 13 {
+        guard !(last == 10 && buffer[0] == 13) else {
             request.append(Character(UnicodeScalar(10)))
             break
         }
