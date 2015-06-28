@@ -8,7 +8,7 @@
 
 include "lib/utils.swift" // for fatalError(...)
 
-// ---- [ client socket struct ] ----------------------------------------------
+// ---- [ client socket class ] -----------------------------------------------
 
 class ClientSocket {
     let cs : Int32
@@ -76,17 +76,18 @@ class ClientSocket {
         return line
     }
 
+    // fetch full request from client socket
     func fetchRequest() -> String {
         var request = ""
         var line : String?
         repeat {
             line = self.nextLine()
-            // TODO: figure out why guard line = self.nextLine() doesnt work
+            // TODO: figure out why guard line = self.nextLine() doesn't work
             guard line != nil else {
                 break
             }
             request += line!
-        } while line != "\r\n" // until empty newline
+        } while line != "\r\n"// until empty newline
         return request
     }
 
@@ -106,7 +107,7 @@ class ClientSocket {
     }
 }
 
-// ---- [ socket struct ] -----------------------------------------------------
+// ---- [ socket class ] ------------------------------------------------------
 
 class Socket {
     let s : Int32
