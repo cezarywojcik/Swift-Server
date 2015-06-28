@@ -4,6 +4,10 @@
  * Auth: Cezary Wojcik
  */
 
+// ---- [ imports ] -----------------------------------------------------------
+
+import Darwin
+
 // ---- [ includes ] ----------------------------------------------------------
 
 include "lib/utils.swift" // for fatalError(...)
@@ -58,7 +62,7 @@ class ClientSocket {
     // fetch next byte from client socket
     func nextByte() -> Int {
         var buffer = [UInt8](count: 1, repeatedValue: 0)
-        next = recv(Int32(cs), &buffer, Int(buffer.count), 0)
+        next = recv(cs, &buffer, Int(buffer.count), 0)
         return Int(buffer[0])
     }
 

@@ -21,3 +21,20 @@ sudo xcode-select -switch /Applications/Xcode-beta.app/Contents/Developer
 To run the project, simply type `make run` in the project directory.
 
 Visit [`http://127.0.0.1:3000`](http://127.0.0.1:3000) in your web browser to see a friendly "Hello, World!" message. The HTTP request will be printed in your terminal.
+
+## Example Code
+
+The functionality is currently very basic. The code below shows what the server can currently do.
+
+```
+include "lib/server.swift"
+
+let app = Server(port: port)
+
+app.run() {
+    request, response -> () in
+    print(request.raw)
+    response.sendRaw("HTTP/1.1 200 OK\n\nHello, World!\n")
+}
+
+```
