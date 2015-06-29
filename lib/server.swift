@@ -31,15 +31,8 @@ class Server {
                 continue
             }
 
-            // get and display client address
-            guard let clientAddress = cs.clientAddress() else {
-                print("clientAddress() failed.")
-                continue
-            }
-            print("Client IP: \(clientAddress)")
-
             // get request
-            let request = HTTPRequest(raw: cs.fetchRequest())
+            let request = HTTPRequest(cs: cs)
 
             // create response
             let response = HTTPResponse(cs: cs)

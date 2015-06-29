@@ -15,6 +15,14 @@ let app = Server(port: port)
 
 app.run() {
     request, response -> () in
-    print(request.raw)
+    // get and display client address
+    guard let clientAddress = request.clientAddress() else {
+        print("clientAddress() failed.")
+        return
+    }
+    print("Client IP: \(clientAddress)")
+
+    // print request headers
+    print(request.rawHeaders)
     response.sendRaw("HTTP/1.1 200 OK\n\nHello, World!\n")
 }

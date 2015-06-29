@@ -81,17 +81,17 @@ class ClientSocket {
     }
 
     // fetch full request from client socket
-    func fetchRequest() -> String {
-        var request = ""
+    func fetchRequest() -> [String] {
+        var request : [String] = []
         var line : String?
-        repeat {
+        while line != "\r\n" { // until empty newline
             line = self.nextLine()
             // TODO: figure out why guard line = self.nextLine() doesn't work
             guard line != nil else {
                 break
             }
-            request += line!
-        } while line != "\r\n"// until empty newline
+            request.append(line!)
+        }
         return request
     }
 
