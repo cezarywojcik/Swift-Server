@@ -4,6 +4,10 @@
  * Auth: Cezary Wojcik
  */
 
+// ---- [ includes ] ----------------------------------------------------------
+
+include "lib/utils.swift" // for String extension
+
 // ---- [ structs ] -----------------------------------------------------------
 
 struct HTTPRequest {

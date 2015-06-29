@@ -31,6 +31,7 @@ extension String {
     }
 
     func indexOf(searchString : String) -> Int {
+        // TODO: find a better way to do this
         for i in 0..<(self.characters.count - searchString.characters.count) {
             let substring = self[i..<i + searchString.characters.count]
             if searchString == substring {
