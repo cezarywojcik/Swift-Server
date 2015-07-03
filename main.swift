@@ -13,6 +13,8 @@ include "lib/server.swift"
 
 let app = Server(port: port)
 
+print("Running server on port \(port)")
+
 app.run() {
     request, response -> () in
     // get and display client address
@@ -26,3 +28,4 @@ app.run() {
     print(request.rawHeaders)
     response.sendRaw("HTTP/1.1 200 OK\n\nHello, World!\n")
 }
+
