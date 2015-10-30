@@ -21,13 +21,14 @@
 // ---- [ extensions ] --------------------------------------------------------
 
 extension String {
+    
     subscript (i : Int) -> Character {
-        return self[advance(self.startIndex, i)]
+        return self[self.startIndex.advancedBy(i)]
     }
 
     subscript (r : Range<Int>) -> String {
-        return String(self.characters[Range(start: advance(self.startIndex,
-            r.startIndex), end: advance(self.startIndex, r.endIndex))])
+        return String(self.characters[Range(start: self.startIndex.advancedBy(r.startIndex),
+            end: self.startIndex.advancedBy(r.endIndex))])
     }
 
     func indexOf(searchString : String) -> Int {
@@ -41,4 +42,3 @@ extension String {
         return -1
     }
 }
-
