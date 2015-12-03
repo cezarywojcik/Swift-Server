@@ -23,7 +23,8 @@
 extension String {
 
     subscript (i: Int) -> Character {
-        return self[self.startIndex.advancedBy(i, limit: self.endIndex)]
+        guard i < self.characters.count else { return characters.last }
+        return self[startIndex.advancedBy(i, limit: endIndex)]
     }
 
     subscript (r: Range<Int>) -> String {
