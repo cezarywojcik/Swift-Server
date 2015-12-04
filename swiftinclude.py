@@ -8,7 +8,7 @@
 # Opts: -i, --inputfile     : specify input file (default "main.swift")
 #       -o, --outputfile    : specify output file (default "app.swift")
 #       -d, --debug         : show debug messages
-#-----------------------------------------------------------------------------
+#-----------------------------------------------------------------------------#
 
 # ---- [ imports ] ------------------------------------------------------------
 
